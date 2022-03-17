@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>天宮こころのプロフィールページ</title>
+        <link
+            href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="profile.css">
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script src="https://unpkg.com/alpinejs"></script>
+        <script src="./profile.js"></script>
+    </head>
+    <body class="">
+        <!-- /.wrapper -->
+        <section class="">
+            <div class="flex pt-40 pl-16">
+                <div class="w-1/5">
+                    <img src="../images/image01.png" alt="天宮こころ">
+                </div>
+                <div class="text-9xl pt-36">
+                    <p class="text-white">AMAMIYA</p>
+                    <div class="border border-yellow-200"></div>
+                    <!-- /.boder -->
+                    <p class="text-white">KOKORO</p>
+                    <div class="border border-yellow-200"></div>
+                    <!-- /.boder -->
+                </div>
+            </div>
+            
+        </section>
+
+        <!-- /.wrapper -->
+        <section class="pt-80 relative">
+            <h1 class="text-center text-7xl tracking-wider text-yellow-400">心にいつも天宮こころ！</h1>
+                <div class="flex">
+                    <div class="">
+                        <div class="">
+                            <img class="pt-28 ml-2" src="../images/hukidasi01.png" alt="ふきだし">
+                        </div>
+                        <div class="z-10 absolute -mt-72 ml-44">
+                            <p class="text-green-300">あまみやこころ / Amamiya Kokoro</p>
+                            <h2 class="pt-2 text-4xl">天宮こころ</h2>
+                            <p class="pt-4 leading-8 tracking-widest">  
+                                「龍」と対話できる一族の巫女。<br>
+                                箱入り娘として育てられてきたため、<br>
+                                配信活動を通して世の中のことを学んでいる。<br>
+                                自由奔放で自分の好きなことに正直な頑張り屋さん。
+                            </p>
+                        </div>
+                    </div>
+                    <div class="pt-44 ml-40">
+                        <img class="" src="../images/image02.png" alt="天宮こころ">
+                    </div>
+                </div>
+        </section>
+
+    <div class="">
+        <section class="pt-60 relative">
+            <h1 class="text-6xl text-right tracking-wider text-yellow-400 mr-44 tracking-widest">あまみゃのおしごと</h1>
+            <div class="flex mt-14">
+                <img class="w-4/12" src="../images/image03.png" alt="天宮こころ">
+                <div class="ml-5 bg-indigo-900 w-full rounded-3xl">
+                    <iframe class="w-11/12 h-5/6 my-12 mx-10 rounded-3xl" src="https://www.youtube.com/embed/TqWpxtUJti0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </div>
+        </section>
+
+        <section class="pt-60 relative"> 
+            <h1 class="text-6xl tracking-wider text-yellow-400 mr-44 tracking-widest">あまみゃのねこ</h1>
+            <div>
+                <div class="z-10 absolute right-0 -mt-32">
+                    <img src="../images/neko.png" alt="ねこ">
+                </div>
+                <div class="absolute">
+                    <div class="static ml-60">
+                        <img src="../images/hukidashi02.png" alt="ふきだし">
+                    </div>
+                    <div class="z-10 absolute ml-96 -mt-80"> 
+                        <h2 class="text-4xl">ペット：ねこ</h2>
+                        <p class="pt-4 leading-8 tracking-widest">
+                            元々野良だったねこが家に居着いたらしい<br>
+                            特にこのねこと対話できたりするわけでもないようだ<br>
+                            ねこなので。
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section class="pt-96 relative mt-96">
+            <h1 class="text-6xl text-right tracking-wider text-yellow-400 mr-44 tracking-widest">あまみゃの活動場所</h1>
+            <div class="flex">
+                <img class="w-4/12" src="../images/image04.png" alt="天宮こころ">
+                <div>
+                    <img src="../images/hukidashi03.png" alt="ふきだし">
+                    <h2>YouTubeを中心に毎日活動中！</h2>
+                </div>
+                <div>
+                    <img class="w-4/12" src="../images/twitter.png" alt="ツイッターアイコン">
+                    <img class="w-4/12" src="../images/youtube.png" alt="Youtubeアイコン">
+                    <img class="w-4/12"src="../images/niconico.png" alt="niconicoアイコン">
+                </div>
+            </div>
+        </section>
+
+        <section class="w-3/5 container mx-auto" x-data="inputData">
+            <div>
+                <h1>メッセージはこちら</h1>
+                <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+                    <template class="mb:flex mb:items-center mb-6" x-for=" item in inputList">
+                        <div class="mb-4 mx-8">
+                            <label
+                                for="name"
+                                class="block text-gray-700 text-sm font-bold mb-2 mt-3"
+                                x-text="item.title"
+                            ></label>
+
+                            <template x-if="item.type === 'textarea'">
+                                <textarea
+                                    x-bind:placeholder="item.placeholder"
+                                    class="border rounded w-4/5 h-20 bg-gray-50"
+                                    name=""
+                                ></textarea>
+                            </template>
+                            
+                            <template x-if="item.type !== 'textarea'">
+                                <div class="w-3/4">
+                                    <input
+                                        x-init="$watch('item.value', () => {
+                                            console.log('validate')
+                                            item.validate()
+                                        })"
+                                        x-bind:type="item.type"
+                                        x-bind:placeholder="item.placeholder"
+                                        x-model="item.value"
+                                        class="
+                                            w-full
+                                            border
+                                            rounded
+                                            px-4
+                                            py-1
+                                            bg-gray-50
+                                        "
+                                        id="name"
+                                        name="name"
+                                    />
+                                    <p
+                                        class="text-xs px-3 pt-3"
+                                        x-bind:class=" !item.message ? 'text-gray-400' : 'text-red-400'"
+                                        x-text="item.message"
+                                    ></p>
+                                </div>
+                            </template>
+                        </div>
+                    </template>
+                    <div class="flex items-center">
+                        <div class="w-1/3"></div>
+                        <div class="w-2/3">
+                        <button class="shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded" type="button">
+                            送信
+                        </button>
+                        </div>
+                    </div>
+                    <div>
+                        <h2>
+                            いつも応援ありがとう！<br>
+                            心にいつも天宮こころ！
+                        </h2>
+                        <img src="../images/image05.png" alt="天宮こころ">
+
+                    </div>
+            </form>
+          </div>
+        </section>
+
+        <section>
+            <p class="text-center text-gray-500 text-xs pb-8">
+                &copy;2021 ANYCOLOR, Inc.
+            </p>
+        </section>
+    </div>
+    </body>
+</html>
